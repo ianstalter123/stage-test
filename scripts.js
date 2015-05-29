@@ -16,28 +16,18 @@ Stage(function(stage) {
 soundEfx = document.getElementById("soundEfx");
 soundEfx1 = document.getElementById("soundEfx1");
 soundEfx2 = document.getElementById("soundEfx2");
-stage.viewbox(40, 40);
+stage.viewbox(25, 25);
 var width = 8, height = 8;
 var ui = {};
 
 ui.board = Stage.create().appendTo(stage).pin({
   width : width * 3,
   height : height * 3,
-  align : 0.5
+  align : 0.55
   });
 
 function updateTiles()
 {
-
-
-   for (var i = 0; i < 10; i++) {
-      for (var j = 0; j < 10; j++) {
-
-       
-        
-
-      }
-    }
 
 
 // test2 = getTile(0,9);
@@ -200,6 +190,8 @@ Tile.prototype.insert = function(i, j) {
     //console.log(_map);
   };
 
+
+//5 bomb - blowup function
   function Bomb()
   {
 
@@ -260,10 +252,7 @@ console.log(point);
     // console.log(stage);
 
 
-   //box is the object
-   //console.log(box);
-   //console.log(box.ui);
-   
+  //test for bomb click
     
     if(box.i === 4 && box.j === 4)
     {
@@ -277,15 +266,19 @@ var temp;
  var x = getTile(box.i,box.j);
  var y = getTile(box.i+1,box.j);
  var z = getTile(box.i+2,box.j);
- //console.log(x);
- x.ui.tween(200).ease('quad-out').clear().pin({
+
+
+
+//swap the two tiles
+
+ x.ui.tween(200).ease('bounce').clear().pin({
 
       offsetX : y.i * 2 + 1,
       offsetY : y.j * 2 + 1,
 
     });
 
- y.ui.tween(200).ease('quad-out').clear().pin({
+ y.ui.tween(200).ease('bounce').clear().pin({
       offsetX : x.i * 2 + 1,
       offsetY : x.j * 2 + 1
     });
@@ -294,7 +287,7 @@ var temp;
  y.i = temp;
 
 
-
+//swap the tile position in the array
  _map[x.i + ':' + x.j] = x;
  _map[y.i + ':' + y.j] = y;
 
@@ -302,6 +295,8 @@ var first = getTile(box.i,box.j-1);
 var second = getTile(box.i,box.j);
 console.log(first);
 
+
+//check if the swapped tiles match to remove
 if(first.color === second.color)
 {
   first.ui.remove();
