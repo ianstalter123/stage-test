@@ -251,6 +251,16 @@ if(first.color === second.color)
   second.ui.remove();
 }
 
+var first = getTile(y.i,y.j-1);
+var second = getTile(y.i,y.j);
+console.log(first);
+
+if(first.color === second.color)
+{
+  first.ui.remove();
+  second.ui.remove();
+}
+
 
 
 
