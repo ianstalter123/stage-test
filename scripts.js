@@ -237,8 +237,22 @@ var temp;
 
 
 
+
  _map[x.i + ':' + x.j] = x;
  _map[y.i + ':' + y.j] = y;
+
+var first = getTile(box.i,box.j-1);
+var second = getTile(box.i,box.j);
+console.log(first);
+
+if(first.color === second.color)
+{
+  first.ui.remove();
+  second.ui.remove();
+}
+
+
+
 
 
 updateTiles();
