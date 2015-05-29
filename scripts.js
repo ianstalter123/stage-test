@@ -30,7 +30,14 @@ function updateTiles()
 {
 
 
+   for (var i = 0; i < 10; i++) {
+      for (var j = 0; j < 10; j++) {
 
+       
+        
+
+      }
+    }
 
 
 // test2 = getTile(0,9);
@@ -205,9 +212,14 @@ Tile.prototype.insert = function(i, j) {
         var target = getTile(i,j)
         if(target.color === rand)
         {
-          target.ui.remove();
+           
+        target.ui.remove();
+        
         }
         
+         setTimeout(function () {
+            
+        }, 1);  
 
       }
     }
@@ -267,8 +279,10 @@ var temp;
  var z = getTile(box.i+2,box.j);
  //console.log(x);
  x.ui.tween(200).ease('quad-out').clear().pin({
+
       offsetX : y.i * 2 + 1,
-      offsetY : y.j * 2 + 1
+      offsetY : y.j * 2 + 1,
+
     });
 
  y.ui.tween(200).ease('quad-out').clear().pin({
@@ -289,6 +303,32 @@ var second = getTile(box.i,box.j);
 console.log(first);
 
 if(first.color === second.color)
+{
+  first.ui.remove();
+  second.ui.remove();
+  score += 1;
+  document.querySelector('#score').innerHTML = "Score " + score;
+  soundEfx.play();
+}
+
+var first = getTile(box.i,box.j+1);
+var second = getTile(box.i,box.j);
+console.log(first);
+
+if(first && first.color === second.color)
+{
+  first.ui.remove();
+  second.ui.remove();
+  score += 1;
+  document.querySelector('#score').innerHTML = "Score " + score;
+  soundEfx.play();
+}
+
+var first = getTile(y.i,y.j+1);
+var second = getTile(y.i,y.j);
+console.log(first);
+
+if(first && first.color === second.color)
 {
   first.ui.remove();
   second.ui.remove();
