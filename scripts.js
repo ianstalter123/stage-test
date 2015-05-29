@@ -253,7 +253,7 @@ if(first.color === second.color)
 
 var first = getTile(y.i,y.j-1);
 var second = getTile(y.i,y.j);
-console.log(first);
+console.log(first); 
 
 if(first.color === second.color)
 {
