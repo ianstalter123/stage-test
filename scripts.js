@@ -1,18 +1,21 @@
 
 
-var colors = [ 'green', 'blue', 'purple', 'red', 'orange', 'yellow', 'special' ];
 
 
 var score = 0;
 var soundEfx;
+var soundEfx1;
+var soundEfx2;
 
 
 //SETUP THE STAGE
 Stage(function(stage) {
 
-var bomb = document.querySelector('#bomb');
+
 
 soundEfx = document.getElementById("soundEfx");
+soundEfx1 = document.getElementById("soundEfx1");
+soundEfx2 = document.getElementById("soundEfx2");
 stage.viewbox(40, 40);
 var width = 8, height = 8;
 var ui = {};
@@ -163,12 +166,15 @@ function start()
         var x =_map[0 + ':' + 0];
         console.log(_tiles[j]);
         // console.log(_map);
+       
+      
+       delete _map[4 + ':' + 4];
         new Tile((Math.floor(Math.random() * 5))).insert(i, j);
-
+        
 
       }
     }
-
+new Tile(6).insert(4, 4);
   }
 
 //1 DEFINITION OF THE "TILE" OBJECT
@@ -186,6 +192,26 @@ Tile.prototype.insert = function(i, j) {
     this.uiInsert(this);
     //console.log(_map);
   };
+
+  function Bomb()
+  {
+
+    var rand = Math.floor(Math.random()*5);
+    console.log(rand);
+        for (var i = 0; i < 10; i++) {
+      for (var j = 0; j < 10; j++) {
+
+
+        var target = getTile(i,j)
+        if(target.color === rand)
+        {
+          target.ui.remove();
+        }
+        
+
+      }
+    }
+  }
 
   //3 ADD THE TILE OBJECT FOR EACH COORD TO THE MAP
   function setTile(i, j, tile) {
@@ -227,6 +253,12 @@ console.log(point);
    //console.log(box.ui);
    
     
+    if(box.i === 4 && box.j === 4)
+    {
+      console.log("bomb");
+      soundEfx1.play();
+      Bomb();
+    }
 
 var temp;
  
@@ -277,7 +309,7 @@ if(first.color === second.color)
   second.ui.remove();
   score += 1;
   document.querySelector('#score').innerHTML = "Score " + score;
-  soundEfx.play();
+  soundEfx2.play();
 }
 
 
@@ -298,7 +330,7 @@ updateTiles();
 
 
 start();
-
+ 
 
 
 
