@@ -154,8 +154,6 @@ function start()
     for (var i = 0; i < 10; i++) {
       for (var j = 0; j < 10; j++) {
 
-
-
         var x =_map[0 + ':' + 0];
         console.log(_tiles[j]);
         // console.log(_map);
