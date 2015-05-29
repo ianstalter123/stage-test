@@ -1,12 +1,18 @@
 
 
-var colors = [ 'green', 'blue', 'purple', 'red', 'orange', 'yellow' ];
+var colors = [ 'green', 'blue', 'purple', 'red', 'orange', 'yellow', 'special' ];
+
 
 var score = 0;
+var soundEfx;
 
 
 //SETUP THE STAGE
 Stage(function(stage) {
+
+var bomb = document.querySelector('#bomb');
+
+soundEfx = document.getElementById("soundEfx");
 stage.viewbox(40, 40);
 var width = 8, height = 8;
 var ui = {};
@@ -157,11 +163,12 @@ function start()
         var x =_map[0 + ':' + 0];
         console.log(_tiles[j]);
         // console.log(_map);
-        new Tile((Math.floor(Math.random() * colors.length))).insert(i, j);
+        new Tile((Math.floor(Math.random() * 5))).insert(i, j);
 
 
       }
     }
+
   }
 
 //1 DEFINITION OF THE "TILE" OBJECT
@@ -194,6 +201,9 @@ this.Tile = Tile;
 Tile.prototype.uiInsert = function() {    
 this.ui = Stage.image('tile-' + (this.color + 1)).appendTo(ui.board);
 
+
+
+
 // store this in a variable for use on the box handlers
 var box = this;
     this.ui.pin({
@@ -202,6 +212,8 @@ var box = this;
       handle : 0.5
     }).on(Stage.Mouse.CLICK,function(point){
       drag = true;
+console.log(point);
+
 
  //console.log(box);
     //  delete _map[box.i + ':' + box.j];
@@ -237,7 +249,6 @@ var temp;
 
 
 
-
  _map[x.i + ':' + x.j] = x;
  _map[y.i + ':' + y.j] = y;
 
@@ -251,9 +262,10 @@ if(first.color === second.color)
   second.ui.remove();
   score += 1;
   document.querySelector('#score').innerHTML = "Score " + score;
+  soundEfx.play();
 }
 
-
+ 
 
 var first = getTile(y.i,y.j-1);
 var second = getTile(y.i,y.j);
@@ -265,6 +277,7 @@ if(first.color === second.color)
   second.ui.remove();
   score += 1;
   document.querySelector('#score').innerHTML = "Score " + score;
+  soundEfx.play();
 }
 
 
