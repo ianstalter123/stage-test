@@ -249,7 +249,11 @@ if(first.color === second.color)
 {
   first.ui.remove();
   second.ui.remove();
+  score += 1;
+  document.querySelector('#score').innerHTML = "Score " + score;
 }
+
+
 
 var first = getTile(y.i,y.j-1);
 var second = getTile(y.i,y.j);
@@ -259,6 +263,8 @@ if(first.color === second.color)
 {
   first.ui.remove();
   second.ui.remove();
+  score += 1;
+  document.querySelector('#score').innerHTML = "Score " + score;
 }
 
 
