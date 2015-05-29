@@ -1,0 +1,44 @@
+ //1 LOOP THROUGH WIDTH AND CREATE A TILE FOR THE GRID 6/6
+
+ _map = {}, _tiles = [];
+    for (var i = 0; i < 6; i++) {
+      for (var j = 0; j < 6; j++) {
+        new Tile((Math.random() * colors + 1 | 0)).insert(i, j);
+      }
+    }
+
+//2 INSERT A 'TILE' OBJECT AT EACH COORDINATE, add to MAP AND PUSH IT INTO THE UI
+
+  Tile.prototype.insert = function(i, j) {
+    setTile(i, j, this);
+    this.i = i;
+    this.j = j;
+    _tiles.push(this);
+    this.uiInsert();
+  };
+
+
+
+//3 ADD THE TILE OBJECT FOR EACH COORD TO THE MAP
+  function setTile(i, j, tile) {
+    if (_map[i + ':' + j]) {
+      throw 'Location unavailable: ' + i + ':' + j;
+    }
+    _map[i + ':' + j] = tile;
+  }
+
+  function Tile(color) {
+    this.color = color;
+  }
+
+ Tile.prototype.uiInsert = function() {
+    var self = this;
+    this.ui = Stage.image('tile-' + this.color).appendTo(ui.board);
+    this.ui.pin({
+      offsetX : this.i * 2 + 1,
+      offsetY : this.j * 2 + 1,
+      handle : 0.5
+    }).on(Stage.Mouse.CLICK, function(point) {
+      game.click(self);
+    });
+  };
