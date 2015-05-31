@@ -1,24 +1,15 @@
 
 
-<<<<<<< HEAD
-var colors = [ 'green', 'blue', 'purple', 'red', 'orange', 'yellow' ];
-
-var score = 0;
-=======
 
 
 var score = 0;
 var soundEfx;
 var soundEfx1;
 var soundEfx2;
->>>>>>> gh-pages
 
 
 //SETUP THE STAGE
 Stage(function(stage) {
-<<<<<<< HEAD
-stage.viewbox(40, 40);
-=======
 
 
 
@@ -26,30 +17,19 @@ soundEfx = document.getElementById("soundEfx");
 soundEfx1 = document.getElementById("soundEfx1");
 soundEfx2 = document.getElementById("soundEfx2");
 stage.viewbox(25, 25);
->>>>>>> gh-pages
 var width = 8, height = 8;
 var ui = {};
 
 ui.board = Stage.create().appendTo(stage).pin({
   width : width * 3,
   height : height * 3,
-<<<<<<< HEAD
-  align : 0.5
-=======
   align : 0.55
->>>>>>> gh-pages
   });
 
 function updateTiles()
 {
 
 
-<<<<<<< HEAD
-
-
-
-=======
->>>>>>> gh-pages
 // test2 = getTile(0,9);
 // test2.ui.remove();
 // console.log("removing " + test2.j)
@@ -180,18 +160,6 @@ function start()
     for (var i = 0; i < 10; i++) {
       for (var j = 0; j < 10; j++) {
 
-<<<<<<< HEAD
-
-
-        var x =_map[0 + ':' + 0];
-        console.log(_tiles[j]);
-        // console.log(_map);
-        new Tile((Math.floor(Math.random() * colors.length))).insert(i, j);
-
-
-      }
-    }
-=======
         var x =_map[0 + ':' + 0];
         console.log(_tiles[j]);
         // console.log(_map);
@@ -204,7 +172,6 @@ function start()
       }
     }
 new Tile(6).insert(4, 4);
->>>>>>> gh-pages
   }
 
 //1 DEFINITION OF THE "TILE" OBJECT
@@ -223,8 +190,6 @@ Tile.prototype.insert = function(i, j) {
     //console.log(_map);
   };
 
-<<<<<<< HEAD
-=======
 
 //5 bomb - blowup function
   function Bomb()
@@ -252,7 +217,6 @@ Tile.prototype.insert = function(i, j) {
     }
   }
 
->>>>>>> gh-pages
   //3 ADD THE TILE OBJECT FOR EACH COORD TO THE MAP
   function setTile(i, j, tile) {
     if (_map[i + ':' + j]) {
@@ -267,12 +231,9 @@ this.Tile = Tile;
 Tile.prototype.uiInsert = function() {    
 this.ui = Stage.image('tile-' + (this.color + 1)).appendTo(ui.board);
 
-<<<<<<< HEAD
-=======
 
 
 
->>>>>>> gh-pages
 // store this in a variable for use on the box handlers
 var box = this;
     this.ui.pin({
@@ -281,11 +242,8 @@ var box = this;
       handle : 0.5
     }).on(Stage.Mouse.CLICK,function(point){
       drag = true;
-<<<<<<< HEAD
-=======
 console.log(point);
 
->>>>>>> gh-pages
 
  //console.log(box);
     //  delete _map[box.i + ':' + box.j];
@@ -294,13 +252,6 @@ console.log(point);
     // console.log(stage);
 
 
-<<<<<<< HEAD
-   //box is the object
-   //console.log(box);
-   //console.log(box.ui);
-   
-    
-=======
   //test for bomb click
     
     if(box.i === 4 && box.j === 4)
@@ -309,22 +260,12 @@ console.log(point);
       soundEfx1.play();
       Bomb();
     }
->>>>>>> gh-pages
 
 var temp;
  
  var x = getTile(box.i,box.j);
  var y = getTile(box.i+1,box.j);
  var z = getTile(box.i+2,box.j);
-<<<<<<< HEAD
- //console.log(x);
- x.ui.tween(200).ease('quad-out').clear().pin({
-      offsetX : y.i * 2 + 1,
-      offsetY : y.j * 2 + 1
-    });
-
- y.ui.tween(200).ease('quad-out').clear().pin({
-=======
 
 
 
@@ -338,7 +279,6 @@ var temp;
     });
 
  y.ui.tween(200).ease('bounce').clear().pin({
->>>>>>> gh-pages
       offsetX : x.i * 2 + 1,
       offsetY : x.j * 2 + 1
     });
@@ -347,12 +287,6 @@ var temp;
  y.i = temp;
 
 
-<<<<<<< HEAD
-
- _map[x.i + ':' + x.j] = x;
- _map[y.i + ':' + y.j] = y;
-
-=======
 //swap the tile position in the array
  _map[x.i + ':' + x.j] = x;
  _map[y.i + ':' + y.j] = y;
@@ -416,7 +350,6 @@ if(first.color === second.color)
 
 
 
->>>>>>> gh-pages
 
 updateTiles();
 
@@ -432,11 +365,7 @@ updateTiles();
 
 
 start();
-<<<<<<< HEAD
-
-=======
  
->>>>>>> gh-pages
 
 
 

@@ -8,11 +8,8 @@ Stage({
     "tile-3" : { x : 8,   y : 0,  width : 2,  height : 2 },
     "tile-4" : { x : 10,  y : 0,  width : 2,  height : 2 },
     "tile-5" : { x : 12,  y : 0,  width : 2,  height : 2 },
-<<<<<<< HEAD
-    "tile-6" : { x : 14,  y : 0,  width : 2,  height : 2 }
-=======
     "tile-6" : { x : 14,  y : 0,  width : 2,  height : 2 },
     "tile-7" : { x : 2,  y : 0,  width : 2,  height : 2 }
->>>>>>> gh-pages
+
   }
 });
