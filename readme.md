@@ -1,3 +1,4 @@
+
 # stage-test
 view live here: http://ianstalter123.github.io/stage-test/
 
@@ -10,3 +11,6 @@ so will perhaps try to implement in the future.
 Interesting dealing with the issue of trying to build games in canvas
 without using DIVs. Also found that adding a few sound effects makes the 
 whole thing alot more interesting, and isn't too hard to do.
+
+view the site here: http://ianstalter123.github.io/stage-test/
+
